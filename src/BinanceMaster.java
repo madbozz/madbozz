@@ -1,4 +1,4 @@
-public class HelloJava {
+public class BinanceMaster {
     public static void main(String[] args) {
         while (true) {
             System.out.println("Binance Master");
