@@ -4,9 +4,16 @@ import java.util.Scanner;
 public class Questioner {
     static Scanner myReader = null;
 
+    static Integer firstStart() {
+        File tradingInfo = new File("trading-info.txt");
+        if (!tradingInfo.exists() || Questioner.money == 0) return 1;
+        return 0;
+    }
+
     static {
         try {
             File file = new File("trading-info.txt");
+            Questioner.fileWriter("trading-info.txt", ("0\n0\n0\n0\n0\n0\n0\n0\nUSD\ntrue"), "writer");
             myReader = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -89,14 +96,5 @@ public class Questioner {
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
         }
-    }
-
-    static Integer firstStart() {
-        File tradingInfo = new File("trading-info.txt");
-        if (!tradingInfo.exists() || Questioner.money == 0) {
-            Questioner.fileWriter("trading-info.txt", ("0\n0\n0\n0\n0\n0\n0\n0\nUSD\ntrue"), "writer");
-            return 1;
-        }
-        return 0;
     }
 }
