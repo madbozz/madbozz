@@ -13,7 +13,7 @@ public class Questioner {
     static {
         try {
             File file = new File("trading-info.txt");
-            Questioner.fileWriter("trading-info.txt", ("0\n0\n0\n0\n0\n0\n0\n0\nUSD\ntrue"), "writer");
+            if(!file.exists()) Questioner.fileWriter("trading-info.txt", ("0\n0\n0\n0\n0\n0\n0\n0\nUSD\ntrue"), "writer");
             myReader = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
